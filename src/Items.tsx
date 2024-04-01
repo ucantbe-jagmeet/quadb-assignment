@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SingleItem from "./SingleItem";
 import { useDispatch, useSelector } from "react-redux";
 import { setTodosFilter } from "./redux/todoSlice";

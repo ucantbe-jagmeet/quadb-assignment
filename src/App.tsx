@@ -1,19 +1,12 @@
-import { useState } from "react";
 import Form from "./Form";
-import { nanoid } from "nanoid";
 import Items from "./Items";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getLocalStorage, setLocalStorage } from "./utils/getSetLocalStorage";
-interface IItemsObject {
-  name: string;
-  completed: boolean;
-  id: string;
-}
 
 function App() {
   return (
     <section className="section-center">
+      {/* react toastify added  */}
       <ToastContainer
         position="top-right"
         autoClose={2000}

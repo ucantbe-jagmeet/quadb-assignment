@@ -4,14 +4,18 @@ import { addTodo } from "./redux/todoSlice";
 import { toast } from "react-toastify";
 
 const Form: React.FC = () => {
+  //
   const [newItemName, setNewItemName] = useState("");
   const dispatch = useDispatch();
 
+  // handleSubmit functions handling the input taken by user and saved its value (newItemValue ) as a string
+  // and function called addTodo in reducerSlice
   const handleSubmit = (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     if (!newItemName) return;
     dispatch(addTodo(newItemName));
     setNewItemName("");
+
     toast.success("🦄 Item Added to the List!", {
       position: "top-right",
       autoClose: 2000,
@@ -22,12 +26,6 @@ const Form: React.FC = () => {
       progress: undefined,
       theme: "light",
     });
-  };
-  const handleClick = (e: React.SyntheticEvent<EventTarget>) => {
-    e.preventDefault();
-    if (!newItemName) return;
-    dispatch(addTodo(newItemName));
-    setNewItemName("");
   };
 
   return (
@@ -40,9 +38,7 @@ const Form: React.FC = () => {
           value={newItemName}
           onChange={(e) => setNewItemName(e.target.value)}
         />
-        <button type="button" className="btn" onClick={handleClick}>
-          Add item
-        </button>
+        <button className="btn">Add item</button>
       </div>
     </form>
   );

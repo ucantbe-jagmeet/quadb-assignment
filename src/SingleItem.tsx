@@ -21,8 +21,8 @@ const SingleItem: React.FC<IItemProps> = ({ item }) => {
         type="checkbox"
         checked={item.completed}
         onChange={() => {
-          dispatch(toggleTodo(item.id));
-          getLocalStorage();
+          dispatch(toggleTodo(item.id)); // changes the checkbox value
+          getLocalStorage(); // on every changes , this function will update the list on every click
         }}
       />
       <p

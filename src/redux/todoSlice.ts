@@ -21,6 +21,7 @@ export const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    // addTodo functions helps in adding new todo item
     addTodo: (state, action: PayloadAction<string>) => {
       const newTodo: Todo = {
         id: String(Date.now()),
@@ -29,8 +30,11 @@ export const todoSlice = createSlice({
       };
       state.todos.push(newTodo);
 
+      // we are updating todos list value in local storage after every changes
       setLocalStorage(state.todos);
     },
+
+    // toggleTodo functions helps in selecting checkbox value
     toggleTodo: (state, action: PayloadAction<string>) => {
       const todo = state.todos.find((todo) => todo.id === action.payload);
       if (todo) {
@@ -38,10 +42,14 @@ export const todoSlice = createSlice({
         setLocalStorage(state.todos);
       }
     },
+
+    // removeTodo functions helps in removing the todo item
     removeTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
       setLocalStorage(state.todos);
     },
+
+    // setTodosFilter functions helps in selecting the todosFilter value
     setTodosFilter: (state, action: PayloadAction<string>) => {
       state.todosFilter = action.payload;
     },
