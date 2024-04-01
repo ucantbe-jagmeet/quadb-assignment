@@ -10,7 +10,6 @@ interface IItemsObject {
 
 const Items: React.FC = () => {
   const { todos } = useSelector((state: { todos: any }) => state.todos);
-  console.log(todos);
 
   return (
     <div className="items">
