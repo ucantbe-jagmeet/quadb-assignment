@@ -154,6 +154,13 @@ ul {
   color: var(--primary-500);
   background: var(--primary-200);
 }
+.dropdown-items {
+  background: var(--grey-100);
+  margin: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
 .btn-hipster:hover {
   color: var(--primary-200);
   background: var(--primary-700);
@@ -299,7 +306,7 @@ form h4 {
   column-gap: 1rem;
   align-items: center;
   height: 100% ;
-  
+  margin: 5px 0;
 }
 .single-item p {
   letter-spacing: var(--letterSpacing);

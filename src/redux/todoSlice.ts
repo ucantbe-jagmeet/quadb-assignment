@@ -9,10 +9,12 @@ export interface Todo {
 
 interface TodosState {
   todos: Todo[];
+  todosFilter: string;
 }
 
 const initialState: TodosState = {
   todos: getLocalStorage(),
+  todosFilter: "all",
 };
 
 export const todoSlice = createSlice({
@@ -40,8 +42,12 @@ export const todoSlice = createSlice({
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
       setLocalStorage(state.todos);
     },
+    setTodosFilter: (state, action: PayloadAction<string>) => {
+      state.todosFilter = action.payload;
+    },
   },
 });
 
-export const { addTodo, toggleTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, toggleTodo, removeTodo, setTodosFilter } =
+  todoSlice.actions;
 export default todoSlice.reducer;

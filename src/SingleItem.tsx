@@ -1,6 +1,7 @@
 import React from "react";
 import { removeTodo, toggleTodo } from "./redux/todoSlice";
 import { useDispatch } from "react-redux";
+import { getLocalStorage } from "./utils/getSetLocalStorage";
 
 interface IItemObject {
   name: string;
@@ -19,7 +20,10 @@ const SingleItem: React.FC<IItemProps> = ({ item }) => {
       <input
         type="checkbox"
         checked={item.completed}
-        onChange={() => dispatch(toggleTodo(item.id))}
+        onChange={() => {
+          dispatch(toggleTodo(item.id));
+          getLocalStorage();
+        }}
       />
       <p
         style={{
