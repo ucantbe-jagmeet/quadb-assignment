@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { setLocalStorage } from "../utils/getSetLocalStorage";
+import { getLocalStorage, setLocalStorage } from "../utils/getSetLocalStorage";
 
 export interface Todo {
   id: string;
@@ -12,7 +12,7 @@ interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: [],
+  todos: getLocalStorage(),
 };
 
 export const todoSlice = createSlice({
